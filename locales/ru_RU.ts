@@ -6454,4 +6454,110 @@ The following table displays Workshop mods available for update from Steam.</sou
         <translation>RimSort не смог прочитать указанный список модов, так как он может быть недействительным или отсутствовать.</translation>
     </message>
 </context>
+<context>
+    <name>GroupsPanel</name>
+    <message>
+        <location filename="../app/views/main_content_panel.py" line="195"/>
+        <source>Active / Inactive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/main_content_panel.py" line="198"/>
+        <source>Groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="102"/>
+        <location filename="../app/views/groups_panel.py" line="260"/>
+        <source>Enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="102"/>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="102"/>
+        <location filename="../app/views/groups_panel.py" line="260"/>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="103"/>
+        <source>Choose which mods appear in groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="105"/>
+        <source>Search groups, mods or package IDs…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="107"/>
+        <source>Group colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="109"/>
+        <location filename="../app/views/groups_panel.py" line="391"/>
+        <location filename="../app/views/groups_panel.py" line="412"/>
+        <source>New group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="183"/>
+        <source>Cannot read groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="210"/>
+        <source>Groups were not saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="230"/>
+        <location filename="../app/views/groups_panel.py" line="300"/>
+        <location filename="../app/views/groups_panel.py" line="425"/>
+        <source>Ungrouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="391"/>
+        <location filename="../app/views/groups_panel.py" line="439"/>
+        <source>Group name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="421"/>
+        <source>Move to group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="429"/>
+        <location filename="../app/views/groups_panel.py" line="439"/>
+        <source>Rename group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="430"/>
+        <source>Group color…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="432"/>
+        <source>Remove color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="434"/>
+        <source>Remove group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/views/groups_panel.py" line="455"/>
+        <source>Group color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

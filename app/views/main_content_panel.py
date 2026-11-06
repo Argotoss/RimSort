@@ -13,6 +13,7 @@ from typing import Any, Literal, cast, overload
 
 from loguru import logger
 from PySide6.QtCore import (
+    QCoreApplication,
     QEventLoop,
     QObject,
     QProcess,
@@ -29,6 +30,7 @@ from PySide6.QtWidgets import (
     QLabel,
     QMessageBox,
     QSplitter,
+    QTabWidget,
     QWidget,
 )
 
@@ -96,6 +98,7 @@ from app.utils.zip_extractor import (
     get_zip_contents,
 )
 from app.views import dialogue
+from app.views.groups_panel import GroupsPanel
 from app.views.mod_info_panel import ModInfoPanel
 from app.views.mods_panel import (
     ModListWidget,
@@ -184,6 +187,18 @@ class MainContent(QObject):
             settings=self.settings,
             metadata_controller=self.metadata_controller,
         )
+        self.groups_panel = GroupsPanel(self.mods_panel)
+        self.mod_views = QTabWidget()
+        self.mods_panel.panel.removeWidget(self.mods_panel.lists_splitter)
+        self.mod_views.addTab(
+            self.mods_panel.lists_splitter,
+            QCoreApplication.translate("GroupsPanel", "Active / Inactive"),
+        )
+        self.mod_views.addTab(
+            self.groups_panel, QCoreApplication.translate("GroupsPanel", "Groups")
+        )
+        self.mods_panel.panel.insertWidget(0, self.mod_views, 1)
+        self.mod_views.currentChanged.connect(self.groups_panel.refresh)
         self.mod_info_container = QWidget()
         self.mod_info_container.setLayout(self.mod_info_panel.panel)
         self.mods_panel_container = QWidget()
@@ -205,6 +220,8 @@ class MainContent(QObject):
         self.main_layout.addWidget(self.main_splitter)
 
     def _connect_signals(self) -> None:
+        self.groups_panel.selected.connect(self._select_group_mod)
+        self.groups_panel.toggled.connect(self._toggle_group_mod)
         EventBus().settings_have_changed.connect(self._on_settings_have_changed)
         EventBus().do_check_for_application_update.connect(self._do_check_for_update)
         EventBus().do_open_mod_list.connect(self._do_import_list_file_xml)
@@ -795,6 +812,24 @@ class MainContent(QObject):
             missing_mod_properties_panel.show()
         except Exception as e:
             logger.error(f"Error checking mod properties: {e}")
+
+    def _select_group_mod(self, uuid: str) -> None:
+        for source in self.groups_panel.sources():
+            if uuid in source.paths:
+                item = source.item(source.paths.index(uuid))
+                if item is not None:
+                    self.__mod_list_slot(uuid, item)
+                return
+
+    def _toggle_group_mod(self, uuid: str) -> None:
+        for source in self.groups_panel.sources():
+            if uuid in source.paths:
+                source.clearSelection()
+                source.setCurrentRow(source.paths.index(uuid))
+                item = source.currentItem()
+                if item is not None:
+                    source.mod_double_clicked(cast(CustomListWidgetItem, item))
+                return
 
     def __mod_list_slot(self, uuid: str, item: CustomListWidgetItem) -> None:
         """

@@ -116,7 +116,8 @@ QLineEdit:disabled {
     background-color: #5a4a4a;
 }
 /* Styling for list widgets (mod list and rule editor lists) */
-QListWidget {
+QListWidget,
+QTreeWidget#GroupsModTree {
     background-color: #2e1a1a;
     border-style: solid;
     border-color: #4a3a3a;
@@ -124,20 +125,24 @@ QListWidget {
     border-radius: 3px;
     padding-right: 5px;
 }
-QListWidget::item {
+QListWidget::item,
+QTreeWidget#GroupsModTree::item {
     border: 0px;
     /* padding-right: 20px; */
     margin-right: 12px;
 }
 
 /* Styling for a selected mod item */
-QListWidget::item:selected:!active {
+QListWidget::item:selected:!active,
+QTreeWidget#GroupsModTree::item:selected:!active {
     background: #ff7f50;
 }
-QListWidget::item:selected:active {
+QListWidget::item:selected:active,
+QTreeWidget#GroupsModTree::item:selected:active {
     background: #5a4a4a;
 }
-QListWidget::item:hover {
+QListWidget::item:hover,
+QTreeWidget#GroupsModTree::item:hover {
     background: #3a2a2a;
 }
 /* Default context menu style */
